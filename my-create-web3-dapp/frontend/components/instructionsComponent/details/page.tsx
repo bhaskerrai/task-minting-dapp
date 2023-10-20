@@ -8,7 +8,7 @@ import {
 } from "@/constants";
 
 import { useState, useEffect } from "react";
-import {ethers} from 'ethers';
+import { formatEther } from "viem/utils";
 import { useAccount, useBalance, useContractRead, useContractWrite, useNetwork, usePrepareContractWrite, useSignMessage } from "wagmi";
 import { readContract, waitForTransaction, writeContract } from "wagmi/actions"
 
@@ -501,7 +501,8 @@ const Details = () => {
                 <div>Error loading DAO balance</div>
                 ) : daoBalance.data && daoBalance.data.value !== undefined && (
                 <>
-                    Treasury Balance: {ethers.utils.formatEther(daoBalance.data.value).toString()} ETH
+                    Treasury Balance:{" "}
+                    {formatEther(daoBalance.data.value).toString()} ETH
                 </>
                 )}
 
