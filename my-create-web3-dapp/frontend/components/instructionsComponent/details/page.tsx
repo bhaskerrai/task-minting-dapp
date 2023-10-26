@@ -63,7 +63,9 @@ const Details = () => {
     });
 
     const ownerOfDAO: string = daoOwner.data as string
-    const owner = ownerOfDAO.toLowerCase()
+    // const owner = ownerOfDAO.toLowerCase()
+    const owner = ownerOfDAO ? ownerOfDAO.toLowerCase() : '';
+
     
 
     function handleClick() {
