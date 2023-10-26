@@ -5,7 +5,7 @@ export default function Footer() {
     <div className={styles.footer}>
       <div className={styles.icons_container}>
         <div>
-            CryptoDevs - All rights reserved.
+            NFTDao - All rights reserved.
         </div>
       </div>
     </div>

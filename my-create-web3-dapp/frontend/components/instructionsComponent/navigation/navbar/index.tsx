@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <a href="/" >
-        <p>CryptoDevs</p>
+        <p>NFTDao</p>
       </a>
       <ConnectKitButton />
     </nav>

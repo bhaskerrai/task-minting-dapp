@@ -7,7 +7,7 @@ export default function InstructionsComponent() {
       <header className={styles.header_container}>
         <div className={styles.header}>
           <h1>
-            Crypto<span>Devs</span>
+            NFT<span>Dao</span>
           </h1>
           <h3>Welcome to the DAO!</h3>
         </div>

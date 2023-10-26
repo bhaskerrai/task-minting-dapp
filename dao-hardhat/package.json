@@ -25,6 +25,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@nomiclabs/hardhat-etherscan": "^3.1.7"
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "base64-sol": "^1.1.0"
   }
 }
