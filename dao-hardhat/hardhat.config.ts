@@ -3,7 +3,9 @@ import "@nomicfoundation/hardhat-toolbox";
 import * as dotenv from 'dotenv';
 dotenv.config();
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
+const polygonRpc = process.env.POLYGON_RPC
+const PRIVATE_KEY = process.env.POLYGON_PRIVATE_KEY
+
 
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
@@ -13,10 +15,17 @@ const config: HardhatUserConfig = {
       chainId: 1337, // Sepolia chainId
     },
     sepolia: {
-      url: process.env.RPC_URL,
-      chainId: 11155111, // Sepolia chainId
-      accounts: [PRIVATE_KEY], // Provide an array of private keys directly
+      url: "https://sepolia.ledgerium.net/rpc", // Sepolia RPC URL
+      chainId: 1729, // Sepolia chainId
+      accounts: {
+        mnemonic: "your-mnemonic-here", // Add your mnemonic for the Sepolia account
+      },
     },
+
+    polygon_mumbai: {
+      url: polygonRpc,
+      accounts: [`0x${PRIVATE_KEY}`]
+   },
   },
 
   etherscan: {

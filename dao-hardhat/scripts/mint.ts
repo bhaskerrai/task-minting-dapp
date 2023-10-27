@@ -1,6 +1,9 @@
-export const MyToken = "0x6186446125E5FBcD64909C8C666829a8BB185449"
+import { ethers } from 'ethers';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
-export const MyTokenABI = [
+const contractAddress = '0x6186446125E5FBcD64909C8C666829a8BB185449';
+const contractABI = [
     {
       "inputs": [
         {
@@ -623,3 +626,29 @@ export const MyTokenABI = [
       "type": "function"
     }
   ]
+
+const walletPrivateKey =  `0x${process.env.POLYGON_PRIVATE_KEY}`;
+
+async function mintNFT() {
+  try {
+    const provider = new ethers.JsonRpcProvider(process.env.POLYGON_RPC); 
+
+    const wallet = new ethers.Wallet(walletPrivateKey, provider);
+
+    const contract = new ethers.Contract(contractAddress, contractABI, wallet);
+
+    const quantity = 1; 
+
+    const transaction = await contract.mint(quantity, {
+      value: ethers.parseEther((quantity * 0.2).toString()), // 0.2 ETH per NFT
+    });
+
+    await transaction.wait();
+
+    console.log(`Minted ${quantity} NFT(s) successfully!`);
+  } catch (error) {
+    console.error('Error minting NFT:', error);
+  }
+}
+
+mintNFT();

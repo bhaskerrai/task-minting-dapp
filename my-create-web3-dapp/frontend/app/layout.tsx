@@ -3,13 +3,14 @@ import { WagmiConfig, createConfig, sepolia } from "wagmi";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import Navbar from "@/components/instructionsComponent/navigation/navbar";
 import Footer from "@/components/instructionsComponent/navigation/footer";
+import { polygonMumbai } from "viem/chains";
 
 const config = createConfig(
   getDefaultConfig({
     // Required API Keys
     alchemyId: process.env.ALCHEMY_API_KEY, // or infuraId
     walletConnectProjectId: "demo",
-    chains: [sepolia],
+    chains: [polygonMumbai],
 
     // Required
     appName: "You Create Web3 Dapp",
